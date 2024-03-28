@@ -1,11 +1,12 @@
-package com.pallplication.FragA.Network
+package com.pallplication.FragA.Network.Retrofit
 
 import android.util.Log
-import retrofit2.Callback
+import com.pallplication.FragA.Network.FinalAirQuiality
+import com.pallplication.FragA.Network.OkHttp.OkHttpClientCreator
+import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
-import com.pallplication.FragA.Network.DataExtClass as DataExtClass
 
 class RetrofitClientCreator {
     private val okhttpClient = OkHttpClientCreator()
@@ -19,16 +20,5 @@ class RetrofitClientCreator {
 
     private val adapterApi = retrofitCreator.create(ApInterface::class.java)
 
-    suspend fun fgdg(): DataExtClass {
-        val callEx = adapterApi.getContact()
-
-        val callClassEx = adapterApi.getClassContact()
-        try {
-        }
-        catch (e : IOException){
-            Log.e("TAG", "$e")
-        }
-        return callClassEx
-    }
 
 }
