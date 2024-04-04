@@ -15,7 +15,7 @@ class UrlCreator(baseUrl_ : String,QueryParams_ : List<String?>) {
     }
 
     private fun urlCollector(baseUrl_: String,QueryParams_: List<String?>) : String {
-        var starStr = "$baseUrl_"
+        var starStr = "$baseUrl_?"
         var counter = 0
         for (i in 0..QueryParams_.size-1){
             if(QueryParams_[i]!= null){
