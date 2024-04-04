@@ -9,7 +9,9 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
-
+/**
+ * Класс создающий HTTPclient
+ **/
 class OkHttpClientCreator {
 
     private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
@@ -18,7 +20,7 @@ class OkHttpClientCreator {
         .build()
 
 
-    private val urls = UrlCreator("https://api.met.no/weatherapi/airqualityforecast/0.1/",listOf("?lat=60","&lon=10","&areaclass=grunnkrets")).getUrlString()
+    private val urls = UrlCreator("https://api.met.no/weatherapi/airqualityforecast/0.1/",listOf(null,"60","10","grunnkrets",null,null,null)).getUrlString()
 
     private val requestCreate = Request.Builder()
         .url(urls)
