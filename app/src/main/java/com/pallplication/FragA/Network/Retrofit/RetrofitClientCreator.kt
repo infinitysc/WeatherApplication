@@ -9,16 +9,20 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class RetrofitClientCreator {
-    private val okhttpClient = OkHttpClientCreator()
+    private val okhttpClient = OkHttpClientCreator().getClient()
 
     private val retrofitCreator = Retrofit.Builder()
-        .client(okhttpClient.getClient())
-        .baseUrl("")
+        .client(okhttpClient)
+        .baseUrl("https://api.met.no/weatherapi/airqualityforecast/0.1/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
 
     private val adapterApi = retrofitCreator.create(ApInterface::class.java)
+
+    fun getApi() = runBlocking { withContext(Dispatchers.IO){adapterApi.getDataClass()} }
+    fun getAir(maps : Map<String,String>) = runBlocking { withContext(Dispatchers.IO){adapterApi.getAirClass(maps)} }
+
 
 
 }

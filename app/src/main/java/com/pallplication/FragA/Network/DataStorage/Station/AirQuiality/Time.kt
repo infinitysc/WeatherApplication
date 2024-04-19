@@ -8,5 +8,6 @@ data class Time(
     val from : String?,
     @SerializedName("to") val toTime : String?,
     val variables : Variables,
-    val reason : CertPathValidatorException.Reason
+    val reason : Reason,
+
     )

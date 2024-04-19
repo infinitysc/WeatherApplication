@@ -54,4 +54,12 @@ class UrlCreator(baseUrl_ : String,QueryParams_ : List<String?>) {
     public fun mappedString() : String {
         return this.mapString
     }
+
+
+    constructor(baseUrl_: String,parametr: String) :this(baseUrl_, listOf()) {
+        urlString = urlCollectorWithourParametr(baseUrl_,parametr)
+    }
+    private fun urlCollectorWithourParametr(baseUrl_: String,parametr : String) : String{
+        return "$baseUrl_$parametr"
+    }
 }

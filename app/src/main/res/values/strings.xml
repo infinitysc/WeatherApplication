@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">FragA</string>
+    <string name="testString">Nothing</string>
+    <string name="tapButton">submit</string>
+    <string name="stations">Stations</string>
+    <string name="spinnerText">element</string>
+    <string name="spinnerContentDescription">Content</string>
+    <string name="lon">lon</string>
+    <string name="lan">lan</string>
+    <string name="areaclass">AreaClass</string>
+    <string name="areaClassContentDescription">ContentAreaClass</string>
+    <string name="lanInput">write lan</string>
+    <string name="lonInput">write lon</string>
+
 </resources>

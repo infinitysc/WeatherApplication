@@ -15,32 +15,15 @@ import java.io.IOException
 class OkHttpClientCreator {
 
     private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
+    private val myInterceptor = HttpLoggingInterceptor()
+
+
     private val clientCreator = OkHttpClient.Builder()
         .addInterceptor(interceptor)
         .build()
 
-
-    private val urls = UrlCreator("https://api.met.no/weatherapi/airqualityforecast/0.1/",listOf(null,"60","10","grunnkrets",null,null,null)).getUrlString()
-
-    private val requestCreate = Request.Builder()
-        .url(urls)
-        .build()
-
-    fun getDataClass() : FinalAirQuiality? {
-        try{
-            clientCreator.newCall(requestCreate).execute().use {
-                if(!it.isSuccessful){
-                    throw IOException("not executed")
-                }
-                return Gson().fromJson(it.body!!.string(),FinalAirQuiality::class.java)
-            }
-        }
-        catch(e_ : IOException){
-            Log.e("OkHttpClientError","$e_")
-            return null
-        }
+    fun getClient() : OkHttpClient {
+        return clientCreator
     }
-
-    fun getClient() : OkHttpClient {return clientCreator}
 
 }

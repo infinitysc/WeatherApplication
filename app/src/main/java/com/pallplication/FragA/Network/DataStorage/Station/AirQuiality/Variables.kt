@@ -2,7 +2,11 @@ package com.pallplication.FragA.Network.DataStorage.Station.AirQuiality
 
 
 import com.google.gson.annotations.SerializedName
-
+/**
+ * no2 Оксид Азота
+ * o3 озон
+ * pm10/pm25 вдыхаемые твердные частицы
+ * **/
 data class Variables(
     //AQi
     val AQI : UnitValueClass?,
