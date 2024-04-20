@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerStation_array">
+        <item>NO0057A->Alnabru->Oslo</item>
+        <item>NO0110A->Alvim->Sarpsborg</item>
+        <item>NO0060A->Elgeseter->Trondheim</item>
+        <item>NO0115A->Furulund->Porsgrunn</item>
+        <item>NO0100A->Holta->Lillesand</item>
+    </string-array>
+</resources>
