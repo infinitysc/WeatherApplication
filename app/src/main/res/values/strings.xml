@@ -11,5 +11,7 @@
     <string name="areaClassContentDescription">ContentAreaClass</string>
     <string name="lanInput">write lan</string>
     <string name="lonInput">write lon</string>
+    <string name="defaultText">example name variable</string>
+    <string name="defaultContextText">example of context in variable</string>
 
 </resources>
