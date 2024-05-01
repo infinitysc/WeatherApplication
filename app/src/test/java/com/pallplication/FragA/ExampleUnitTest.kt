@@ -37,7 +37,8 @@ class ExampleUnitTest {
     fun checkController(){
         val c_test = Controller("NO0035A")
 
-        val model = c_test.getModel()
+        val model = c_test.getData().getFromAndTime()
     }
+
 
 }

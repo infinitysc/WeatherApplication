@@ -1,34 +1,36 @@
 package com.pallplication.FragA.Logic.Controller
 
-import android.view.View
-import com.pallplication.FragA.Logic.Model.Model
+import android.graphics.ColorSpace
 import com.pallplication.FragA.Network.DataStorage.Station.AirQuiality.ReqestAir.RequestAir
 import com.pallplication.FragA.Network.FinalAirQuiality
 
 class Controller() {
 
     private var controller : Controller? = null
-    private var model : Model? = null
     private var stationString : String? = null
     private var lan : String? = null
     private var lon : String? = null
     private var areaclass : String? = null
+    private var dataClass : FinalAirQuiality? = null
 
     constructor(lan_ : String? , lon_ : String? ,areaclass_: String?) :  this(){
         lan = lan_
         lon = lon_
         areaclass = areaclass_
-        model = Model(returnModelFFA(lan,lon,areaclass))
+        //model = Model(returnModelFFA(lan,lon,areaclass))
+        dataClass = returnModelFFA(lan,lon,areaclass)
     }
     constructor(areaclass_: String?,station_ : String?) : this() {
         areaclass = areaclass_
         stationString = station_
-        model = Model(returnModelAS(areaclass,station_))
+        //model = Model(returnModelAS(areaclass,station_))
+        dataClass = returnModelAS(areaclass,stationString)
     }
 
     constructor(station_: String?) : this(){
         stationString = station_
-        model = Model(returnModelS(stationString))
+        //model = Model(returnModelS(stationString))
+        dataClass = returnModelS(stationString)
     }
 
     private fun returnModelFFA(lat : String?,lon : String?,areaclass : String?) : FinalAirQuiality{ // area lat lon
@@ -80,7 +82,5 @@ class Controller() {
         return RequestAir.retrofitRequest(maps).returnToActivity()
     } // not tested
 
-    fun getModel() : Model{
-        return this.model!!
-    }
+    fun getData() : FinalAirQuiality = this.dataClass!!
 }
